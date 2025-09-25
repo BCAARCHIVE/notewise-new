@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Language Library | NOTEWISE</title>
+    
+    <!-- Google Fonts for better typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Programming Language Library Stylesheet - styles.css */
+/* Dark theme with black and purple tones, designed to complement NOTEWISE */
+
+/* CSS Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Root Variables for Consistent Color Scheme */
+:root {
+    /* Primary Dark Theme Colors */
+    --bg-primary: #8b5cf6;          /* Deep black background */
+    --bg-secondary: #1a1a1d;        /* Slightly lighter black for cards */
+    --bg-tertiary: #2d2d30;         /* Medium dark for hover states */
+    
+    /* Purple Accent Colors */
+    --purple-primary: #8b5cf6;      /* Main purple for accents */
+    --purple-secondary: #a855f7;    /* Lighter purple for hover */
+    --purple-dark: #6d28d9;         /* Darker purple for backgrounds */
+    --purple-light: #c084fc;        /* Light purple for highlights */
+    
+    /* Text Colors */
+    --text-primary: #ffffff;        /* Pure white for headings */
+    --text-secondary: #e5e7eb;      /* Light gray for body text */
+    --text-muted: #9ca3af;          /* Muted gray for secondary info */
+    --text-accent: var(--purple-light); /* Purple for links and accents */
+    
+    /* Border and Shadow Colors */
+    --border-color: #374151;        /* Subtle borders */
+    --shadow-color: rgba(139, 92, 246, 0.1); /* Purple shadow */
+    --hover-shadow: rgba(139, 92, 246, 0.2); /* Stronger purple shadow */
+    
+    /* Spacing and Typography */
+    --font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --border-radius: 12px;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Base Document Styles */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-family);
+    background: linear-gradient(115deg, var(--bg-primary) 1%, #000000 65%);
+    color: var(--text-secondary);
+    line-height: 1.6;
+    font-size: 16px;
+    min-height: 100vh;
+}
+
+/* Container for Consistent Width */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Navigation Header Styling */
+.header {
+    background: rgba(26, 26, 29, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.nav-brand h1 {
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 2px;
+    display: inline-block;
+}
+
+.nav-subtitle {
+    color: var(--text-muted);
+    font-size: 0.875rem;
+    font-weight: 400;
+}
+
+.nav-link {
+    color: var(--text-accent);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+    padding: 8px 16px;
+    border-radius: 6px;
+    border: 1px solid ;
+}
+
+.nav-link:hover {
+    color: var(--purple-secondary);
+    background: rgba(139, 92, 246, 0.1);
+    border-color: var(--purple-primary);
+}
+
+/* Hero Section */
+.hero-section {
+    padding: 4rem 0 2rem;
+    text-align: center;
+}
+
+.page-title {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, var(--text-primary), var(--purple-light));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.page-description {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+/* Languages Section */
+.languages-section {
+    padding: 3rem 0;
+}
+
+.languages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+/* Language Card Styling - The Heart of the Design */
+.language-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Subtle gradient overlay for depth */
+.language-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--purple-primary), var(--purple-secondary));
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.language-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--purple-primary);
+    box-shadow: 0 12px 40px var(--hover-shadow);
+    background: linear-gradient(135deg, var(--bg-secondary) 0%, rgba(139, 92, 246, 0.05) 100%);
+}
+
+.language-card:hover::before {
+    opacity: 1;
+}
+
+/* Card Header with Title and Badge */
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.language-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.language-badge {
+    background: linear-gradient(135deg, var(--purple-dark), var(--purple-primary));
+    color: var(--text-primary);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Language Description */
+.language-description {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+/* Resource Links List */
+.resource-list {
+    list-style: none;
+    margin-bottom: 1.5rem;
+}
+
+.resource-list li {
+    margin-bottom: 0.75rem;
+}
+
+.resource-link {
+    color: var(--text-accent);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 0;
+}
+
+.resource-link::before {
+    content: '→';
+    margin-right: 8px;
+    font-weight: bold;
+    transition: var(--transition);
+}
+
+.resource-link:hover {
+    color: var(--purple-secondary);
+    transform: translateX(4px);
+}
+
+.resource-link:hover::before {
+    transform: translateX(2px);
+}
+
+/* Card Footer with Difficulty */
+.card-footer {
+    border-top: 1px solid var(--border-color);
+    padding-top: 1rem;
+    margin-top: 1rem;
+}
+
+.difficulty {
+    color: var(--text-muted);
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+/* Additional Resources Section */
+.additional-resources {
+
+    padding: 3rem 0;
+    background: rgba(26, 26, 29, 0.5);
+    margin-top: 2rem;
+    border-radius: var(--border-radius);
+}
+
+.section-title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.resources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.resource-category {
+    background: var(--bg-secondary);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    transition: var(--transition);
+}
+
+.resource-category:hover {
+    border-color: var(--purple-primary);
+    box-shadow: 0 8px 25px var(--shadow-color);
+}
+
+.resource-category h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--purple-primary);
+}
+
+.resource-category ul {
+    list-style: none;
+}
+
+.resource-category li {
+    margin-bottom: 0.75rem;
+}
+
+/* Footer */
+.footer {
+    background: rgba(26, 26, 29, 0.95);
+    border-top: 1px solid var(--border-color);
+    padding: 2rem 0;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.footer p {
+    
+    font-size: 0.875rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    .navbar {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem 15px;
+    }
+    
+    .page-title {
+        font-size: 2.25rem;
+    }
+    
+    .languages-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .language-card {
+        padding: 1.5rem;
+    }
+    
+    .card-header {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: flex-start;
+    }
+    
+    .resources-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-section {
+        padding: 2rem 0 1rem;
+    }
+    
+    .page-title {
+        font-size: 1.875rem;
+    }
+    
+    .page-description {
+        font-size: 1rem;
+    }
+    
+    .language-card {
+        padding: 1.25rem;
+    }
+}
+
+/* Accessibility Improvements */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Focus States for Keyboard Navigation */
+.nav-link:focus,
+.resource-link:focus {
+    outline: 2px solid var(--purple-primary);
+    outline-offset: 2px;
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+    :root {
+        --text-primary: #ffffff;
+        --text-secondary: #ffffff;
+        --border-color: #ffffff;
+        --purple-primary: #bb86fc;
+    }
+}
+    </style>
+</head>
+<body>
+    <!-- Navigation Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-brand">
+                <h1>NOTEWISE</h1>
+                <span class="nav-subtitle">Programming Language Library</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">← Back to Main Site</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Page Title Section -->
+        <section class="hero-section">
+            <div class="container">
+                <h1 class="page-title">Programming Language Library</h1>
+                <p class="page-description">Comprehensive resources and documentation for popular programming languages. Each language section includes tutorials, documentation links, and learning resources to enhance your coding journey.</p>
+            </div>
+        </section>
+
+        <!-- Programming Languages Grid -->
+        <section class="languages-section">
+            <div class="container">
+                <div class="languages-grid">
+                    
+                    <!-- Python Card -->
+                    <div class="language-card">
+                        <div class="card-header">
+                            <h2 class="language-title">Python</h2>
+                            <span class="language-badge">General Purpose</span>
+                        </div>
+                        <p class="language-description">A versatile, beginner-friendly programming language widely used in web development, data science, AI, and automation.</p>
+                        <ul class="resource-list">
+                            <li><a href="#" class="resource-link">Official Python Documentation</a></li>
+                            <li><a href="#" class="resource-link">Python Tutorial for Beginners</a></li>
+                            <li><a href="#" class="resource-link">Advanced Python Concepts</a></li>
+                            <li><a href="#" class="resource-link">Python Libraries & Frameworks</a></li>
+                        </ul>
+                        <div class="card-footer">
+                            <span class="difficulty">Difficulty: Beginner-Friendly</span>
+                        </div>
+                    </div>
+
+                    <!-- JavaScript Card -->
+                    <div class="language-card">
+                        <div class="card-header">
+                            <h2 class="language-title">JavaScript</h2>
+                            <span class="language-badge">Web Development</span>
+                        </div>
+                        <p class="language-description">The backbone of modern web development, enabling interactive websites and full-stack applications.</p>
+                        <ul class="resource-list">
+                            <li><a href="#" class="resource-link">JavaScript Fundamentals</a></li>
+                            <li><a href="#" class="resource-link">ES6+ Modern Features</a></li>
+                            <li><a href="#" class="resource-link">DOM Manipulation Guide</a></li>
+                            <li><a href="#" class="resource-link">Popular JS Frameworks</a></li>
+                        </ul>
+                        <div class="card-footer">
+                            <span class="difficulty">Difficulty: Beginner to Advanced</span>
+                        </div>
+                    </div>
+
+                    <!-- Java Card -->
+                    <div class="language-card">
+                        <div class="card-header">
+                            <h2 class="language-title">Java</h2>
+                            <span class="language-badge">Enterprise</span>
+                        </div>
+                        <p class="language-description">A robust, object-oriented programming language perfect for enterprise applications and Android development.</p>
+                        <ul class="resource-list">
+                            <li><a href="#" class="resource-link">Java Basics & OOP Concepts</a></li>
+                            <li><a href="#" class="resource-link">Java Collections Framework</a></li>
+                            <li><a href="#" class="resource-link">Spring Boot Tutorial</a></li>
+                            <li><a href="#" class="resource-link">Android Development with Java</a></li>
+                        </ul>
+                        <div class="card-footer">
+                            <span class="difficulty">Difficulty: Intermediate</span>
+                        </div>
+                    </div>
+
+                    <!-- C++ Card -->
+                    <div class="language-card">
+                        <div class="card-header">
+                            <h2 class="language-title">C++</h2>
+                            <span class="language-badge">System Programming</span>
+                        </div>
+                        <p class="language-description">A powerful, high-performance language for system programming, game development, and performance-critical applications.</p>
+                        <ul class="resource-list">
+                            <li><a href="#" class="resource-link">C++ Fundamentals</a></li>
+                            <li><a href="#" class="resource-link">Object-Oriented Programming</a></li>
+                            <li><a href="#" class="resource-link">STL (Standard Template Library)</a></li>
+                            <li><a href="#" class="resource-link">Advanced C++ Features</a></li>
+                        </ul>
+                        <div class="card-footer">
+                            <span class="difficulty">Difficulty: Advanced</span>
+                        </div>
+                    </div>
+
+                    <!-- Go Card -->
+                    <div class="language-card">
+                        <div class="card-header">
+                            <h2 class="language-title">MongoDB</h2>
+                            <span class="language-badge">Backend</span>
+                        </div>
+                        <p class="language-description">A modern, efficient language designed for building scalable, concurrent applications and microservices.</p>
+                        <ul class="resource-list">
+                            <li><a href="#" class="resource-link"> Language Basics</a></li>
+                            <li><a href="#" class="resource-link">Concurrency in MongoDB</a></li>
+                            <li><a href="#" class="resource-link">Building Web Services</a></li>
+                            <li><a href="#" class="resource-link">MongoDB Best Practices</a></li>
+                        </ul>
+                        <div class="card-footer">
+                            <span class="difficulty">Difficulty: Intermediate</span>
+                        </div>
+                    </div>
+
+                    <!-- Rust Card -->
+                    <div class="language-card">
+                        <div class="card-header">
+                            <h2 class="language-title">Rust</h2>
+                            <span class="language-badge">Systems</span>
+                        </div>
+                        <p class="language-description">A systems programming language focused on safety, speed, and concurrency without sacrificing performance.</p>
+                        <ul class="resource-list">
+                            <li><a href="#" class="resource-link">The Rust Programming Language Book</a></li>
+                            <li><a href="#" class="resource-link">Ownership and Borrowing</a></li>
+                            <li><a href="#" class="resource-link">Rust for Systems Programming</a></li>
+                            <li><a href="#" class="resource-link">Cargo and Package Management</a></li>
+                        </ul>
+                        <div class="card-footer">
+                            <span class="difficulty">Difficulty: Advanced</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Additional Resources Section -->
+        <section class="additional-resources">
+            <div class="container">
+                <h2 class="section-title">Additional Programming Resources</h2>
+                <div class="resources-grid">
+                    <div class="resource-category">
+                        <h3>Learning Platforms</h3>
+                        <ul>
+                            <li><a href="#" class="resource-link">Interactive Coding Tutorials</a></li>
+                            <li><a href="#" class="resource-link">Practice Problems & Challenges</a></li>
+                            <li><a href="#" class="resource-link">Video Course Libraries</a></li>
+                        </ul>
+                    </div>
+                    <div class="resource-category">
+                        <h3>Development Tools</h3>
+                        <ul>
+                            <li><a href="#" class="resource-link">Code Editors & IDEs</a></li>
+                            <li><a href="#" class="resource-link">Version Control (Git)</a></li>
+                            <li><a href="#" class="resource-link">Debugging Tools</a></li>
+                        </ul>
+                    </div>
+                    <div class="resource-category">
+                        <h3>Community & Support</h3>
+                        <ul>
+                            <li><a href="https://chat.whatsapp.com/IPN6HXZt8BA0bMD8LRKFti?mode=ems_copy_t" class="resource-link">WhatsApp</a></li>
+                            <li><a href="#" class="resource-link">Discord Communities</a></li>
+                            <li><a href="#" class="resource-link">Open Source Projects</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 NOTEWISE - All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

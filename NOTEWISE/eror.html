@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Eror — NOTEWISE</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        :root{
+            --bg:#07060a;
+            --panel:#0f1724;
+            --accent:#8B5CF6;
+            --muted:#9CA3AF;
+            --glass: rgba(255,255,255,0.03);
+        }
+        html,body{height:100%}
+        body{
+            margin:0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #030312 0%, #0b0710 40%, rgba(139,92,246,0.06) 100%);
+            color:#fff;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            padding:32px;
+        }
+        .error-wrap{
+            width:100%;
+            max-width:880px;
+            background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+            border:1px solid rgba(139,92,246,0.12);
+            box-shadow: 0 18px 60px rgba(11,8,30,0.6);
+            border-radius:14px;
+            padding:48px;
+            display:flex;
+            gap:28px;
+            align-items:center;
+        }
+        .error-emoji{
+            flex:0 0 140px;
+            height:140px;
+            border-radius:12px;
+            background:linear-gradient(135deg, rgba(139,92,246,0.14), rgba(167,139,250,0.06));
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            font-size:64px;
+            color:var(--accent);
+            box-shadow: 0 10px 30px rgba(139,92,246,0.08) inset;
+        }
+        .error-content { flex:1; min-width:0; }
+        h1{
+            margin:0;
+            font-size:28px;
+            letter-spacing:-0.4px;
+            color:#fff;
+        }
+        p.lead{
+            margin:10px 0 18px;
+            color:var(--muted);
+            font-size:15px;
+        }
+        p.message{
+            margin:0 0 18px;
+            color:#e6e7ee;
+            font-weight:600;
+            background:linear-gradient(90deg, rgba(139,92,246,0.03), transparent);
+            padding:12px 14px;
+            border-radius:8px;
+            display:inline-block;
+        }
+        .actions{display:flex;gap:12px;flex-wrap:wrap}
+        .btn{
+            display:inline-flex;
+            align-items:center;
+            gap:10px;
+            padding:10px 14px;
+            border-radius:10px;
+            text-decoration:none;
+            font-weight:600;
+            color:#fff;
+            border:1px solid rgba(255,255,255,0.04);
+            transition:transform .12s ease, box-shadow .12s ease;
+            background: linear-gradient(90deg, var(--accent), #6D28D9);
+            box-shadow: 0 8px 28px rgba(139,92,246,0.18);
+        }
+        .btn.secondary{
+            background:transparent;
+            color:var(--muted);
+            border:1px solid rgba(255,255,255,0.04);
+            box-shadow:none;
+        }
+        .btn:active{ transform: translateY(1px); }
+        .note { margin-top:12px; color:var(--muted); font-size:13px; }
+        @media (max-width:720px){
+            .error-wrap{flex-direction:column; padding:28px}
+            .error-emoji{width:100%;height:88px;font-size:42px;border-radius:10px}
+            h1{font-size:22px}
+        }
+    </style>
+</head>
+<body>
+    <main class="error-wrap" role="main" aria-labelledby="errtitle">
+        <div class="error-emoji" aria-hidden="true">🙈</div>
+        <div class="error-content">
+            <h1 id="errtitle">Oops — page not ready</h1>
+            <p class="lead">This page isn't available yet.</p>
+
+            <!-- User-specified message verbatim -->
+            <p class="message">oppsie looks like devs are to lazy to work on</p>
+
+            <div class="actions">
+                <a class="btn" href="index.html" title="Back to home">← Back to home</a>
+                <a class="btn secondary" href="#" onclick="alert('Thanks for the report — we will (maybe) fix it.');return false;">Report issue</a>
+            </div>
+
+            <p class="note">If you expected content here, try navigating from the main site or check back later.</p>
+        </div>
+    </main>
+</body>
+</html>
